@@ -1,0 +1,85 @@
+model Feature2Table1 {
+  id     String   @id @default(cuid(2))
+  field1 String
+  field2 String?
+  field3 String?  @db.VarChar(7)
+  field4 DateTime @default(now())
+  field5 DateTime @default(now()) @updatedAt
+
+  feature2Table2 Feature2Table2[]
+  feature2Table3 Feature2Table3[]
+}
+
+model Feature2Table2 {
+  id               String       @id @default(cuid(2))
+  feature2Table1Id String
+  feature5Table1Id String
+  field1           Feature5Role @default(member)
+  field2           DateTime     @default(now())
+  field3           DateTime     @default(now()) @updatedAt
+
+  feature2Table1 Feature2Table1 @relation(fields: [feature2Table1Id], references: [id], onDelete: Cascade)
+  feature5Table1 Feature5Table1 @relation(fields: [feature5Table1Id], references: [id], onDelete: Cascade)
+}
+
+model Feature2Table3 {
+  id               String    @id @default(cuid(2))
+  feature2Table1Id String
+  field1           String
+  field2           String?
+  field3           String?
+  field4           Boolean   @default(false)
+  field5           DateTime?
+  field6           DateTime?
+  field7           Boolean   @default(false)
+  field8           String?
+  field9           DateTime?
+  field10          DateTime?
+  field11          String?
+  field12          DateTime  @default(now())
+  field13          DateTime  @default(now()) @updatedAt
+
+  feature2Table1 Feature2Table1   @relation(fields: [feature2Table1Id], references: [id], onDelete: Cascade)
+  feature2Table4 Feature2Table4[]
+  feature2Table5 Feature2Table5[]
+}
+
+model Feature2Table4 {
+  id               String    @id @default(cuid(2))
+  feature2Table3Id String
+  field1           DateTime
+  field2           Boolean?
+  field3           String?
+  field4           String?
+  field5           String?
+  field6           DateTime?
+  field7           DateTime?
+  field8           DateTime  @default(now())
+  field9           DateTime  @default(now()) @updatedAt
+
+  feature2Table3 Feature2Table3   @relation(fields: [feature2Table3Id], references: [id], onDelete: Cascade)
+  feature2Table5 Feature2Table5[]
+}
+
+model Feature2Table5 {
+  id               String         @id @default(cuid(2))
+  feature2Table3Id String
+  feature5Table1Id String
+  feature2Table4Id String?
+  field1           String
+  field2           String?
+  field3           Feature2Status @default(pending)
+  field4           DateTime       @default(now())
+  field5           DateTime       @default(now()) @updatedAt
+
+  feature2Table3 Feature2Table3  @relation(fields: [feature2Table3Id], references: [id], onDelete: Cascade)
+  feature5Table1 Feature5Table1  @relation(fields: [feature5Table1Id], references: [id], onDelete: Cascade)
+  feature2Table4 Feature2Table4? @relation(fields: [feature2Table4Id], references: [id], onDelete: Cascade)
+}
+
+enum Feature2Status {
+  pending
+  accepted
+  declined
+  tentative
+}

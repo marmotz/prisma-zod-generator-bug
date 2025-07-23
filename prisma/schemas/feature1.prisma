@@ -1,0 +1,44 @@
+model Feature1Table1 {
+  id               String    @id @default(cuid(2))
+  feature5Table1Id String
+  feature1Table3Id String
+  field1           String    @unique
+  field2           DateTime  @default(now())
+  field3           DateTime? @default(now())
+  field4           DateTime
+
+  feature5Table1 Feature5Table1 @relation(fields: [feature5Table1Id], references: [id], onDelete: Cascade)
+  feature1Table3 Feature1Table3 @relation(fields: [feature1Table3Id], references: [id], onDelete: Cascade)
+}
+
+model Feature1Table2 {
+  id               String   @id @default(cuid(2))
+  feature5Table1Id String
+  feature1Table3Id String
+  field1           String   @unique
+  field2           DateTime @default(now())
+  field3           DateTime
+
+  feature5Table1 Feature5Table1 @relation(fields: [feature5Table1Id], references: [id], onDelete: Cascade)
+  feature1Table3 Feature1Table3 @relation(fields: [feature1Table3Id], references: [id], onDelete: Cascade)
+}
+
+model Feature1Table3 {
+  id      String   @id @default(cuid(2))
+  field1  String?
+  field2  String?
+  field3  String?
+  field4  String?
+  field5  String?
+  field6  String?
+  field7  String?
+  field8  String?
+  field9  String?
+  field10 String?
+  field11 String?
+  field12 DateTime @default(now())
+  field13 DateTime @default(now()) @updatedAt
+
+  accessTokens  Feature1Table1[]
+  refreshTokens Feature1Table2[]
+}

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "moduleResolution": "node",
+    "paths": {
+      "@prisma-client": ["../../apps/back/lib/prisma-client"]
+    },
+    "types": ["jest", "node"],
+    "esModuleInterop": true
+  }
+}

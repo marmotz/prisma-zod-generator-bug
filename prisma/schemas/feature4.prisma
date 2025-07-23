@@ -1,0 +1,27 @@
+model Feature4Table1 {
+  id               String   @id @default(cuid(2))
+  feature5Table1Id String
+  field1           String
+  field2           String
+  field3           DateTime @default(now())
+  field4           DateTime @default(now()) @updatedAt
+
+  feature5Table1 Feature5Table1   @relation(fields: [feature5Table1Id], references: [id], onDelete: Cascade)
+  feature4Table2 Feature4Table2[]
+}
+
+model Feature4Table2 {
+  id               String   @id @default(cuid(2))
+  feature4Table1Id String
+  feature4Table2Id String?
+  field1           Int      @default(0)
+  field2           String
+  field3           Boolean  @default(false)
+  field4           Int
+  field5           DateTime @default(now())
+  field6           DateTime @default(now()) @updatedAt
+
+  feature4Table1         Feature4Table1   @relation(fields: [feature4Table1Id], references: [id], onDelete: Cascade)
+  feature4Table2Parent   Feature4Table2?  @relation("RecursiveRelation", fields: [feature4Table2Id], references: [id], onDelete: Cascade)
+  feature4Table2Children Feature4Table2[] @relation("RecursiveRelation")
+}

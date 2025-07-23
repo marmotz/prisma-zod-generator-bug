@@ -1,0 +1,23 @@
+model Feature3Table1 {
+  id     String   @id @default(cuid(2))
+  field1 DateTime @default(now())
+  field2 DateTime @default(now()) @updatedAt
+
+  feature3Table2 Feature3Table2[]
+}
+
+model Feature3Table2 {
+  id               String       @id @default(cuid(2))
+  feature5Table1Id String
+  feature3Table1Id String
+  field1           String
+  field2           String       @db.VarChar(2)
+  field3           String?      @db.VarChar(7)
+  field4           String?      @db.VarChar(2)
+  field5           Feature5Role @default(member)
+  field6           DateTime     @default(now())
+  field7           DateTime     @default(now()) @updatedAt
+
+  feature5Table1 Feature5Table1 @relation(fields: [feature5Table1Id], references: [id], onDelete: Cascade)
+  feature3Table1 Feature3Table1 @relation(fields: [feature3Table1Id], references: [id], onDelete: Cascade)
+}

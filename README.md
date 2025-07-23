@@ -1,0 +1,22 @@
+# Install
+- `npm i`
+
+# Generate
+- `npm run client:generate`
+
+# Search bugs
+For Feature1Table1 :
+- generated/schemas/objects/Feature1Table1CreateManyFeature1Table3InputEnvelope.schema.ts
+- generated/schemas/objects/Feature1Table1CreateManyFeature5Table1InputEnvelope.schema.ts
+- generated/schemas/objects/Feature1Table1CreateWithoutFeature1Table3Input.schema.ts
+- generated/schemas/objects/Feature1Table1CreateWithoutFeature5Table1Input.schema.ts
+- generated/schemas/objects/Feature1Table1UncheckedUpdateManyWithoutFeature1Table3NestedInput.schema.ts
+- generated/schemas/objects/Feature1Table1UncheckedUpdateManyWithoutFeature5Table1NestedInput.schema.ts
+- generated/schemas/objects/Feature1Table1UpdateManyWithoutFeature1Table3NestedInput.schema.ts
+- generated/schemas/objects/Feature1Table1UpdateManyWithoutFeature5Table1NestedInput.schema.ts
+- generated/schemas/objects/Feature1Table1UpdateManyWithWhereWithoutFeature1Table3Input.schema.ts
+- generated/schemas/objects/Feature1Table1UpdateManyWithWhereWithoutFeature5Table1Input.schema.ts
+- generated/schemas/objects/Feature1Table1UpdateWithWhereUniqueWithoutFeature1Table3Input.schema.ts
+- generated/schemas/objects/Feature1Table1UpdateWithWhereUniqueWithoutFeature5Table1Input.schema.ts
+- generated/schemas/objects/Feature1Table1UpsertWithWhereUniqueWithoutFeature1Table3Input.schema.ts
+- generated/schemas/objects/Feature1Table1UpsertWithWhereUniqueWithoutFeature5Table1Input.schema.ts

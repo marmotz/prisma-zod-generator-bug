@@ -1,0 +1,16 @@
+{
+  "name": "prisma-zod-generator-bug",
+  "private": true,
+  "scripts": {
+    "client:generate": "prisma generate",
+    "client:generate:watch": "prisma generate --watch"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.11.1",
+    "prisma": "^6.11.1",
+    "prisma-zod-generator": "^1.0.2"
+  },
+  "prisma": {
+    "schema": "./prisma"
+  }
+}

@@ -1,0 +1,24 @@
+model Feature5Table1 {
+  id     String    @id @default(cuid(2))
+  field1 String?
+  field2 String?
+  field3 String?
+  field4 String
+  field5 Boolean   @default(false)
+  field6 DateTime?
+  field7 DateTime  @default(now())
+  field8 DateTime  @default(now()) @updatedAt
+
+  feature1Table1 Feature1Table1[]
+  feature1Table2 Feature1Table2[]
+  feature4Table1 Feature4Table1[]
+  feature3Table2 Feature3Table2[]
+  feature2Table2 Feature2Table2[]
+  feature2Table5 Feature2Table5[]
+}
+
+enum Feature5Role {
+  owner
+  admin
+  member
+}
